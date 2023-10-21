@@ -1,0 +1,40 @@
+d1={1:"Tur Dal",2:"Moong Dal",3:"Chana Dal",4:"Prema Groundnut",5:"Moong whole",6:"Kabuli Chana",7:"Udid Dal",8:"Masoor dal",9:"Chana Small",10:"Vatana White",11:"Matki",12:"Rajma Red",13:"Rajma White",14:"Masoor wwhole",15:"Prema Daliya",16:"Chowli Small",17:"Mix Dal",18:"Vatana Green",19:"Chana Green",20:"Vatana Bkack"}
+d2={1:99,2:99,3:82,4:69,5:107,6:49,7:54,8:78,9:38,10:50,11:40,12:47,13:70,14:78,15:59,16:60,17:46,18:61,19:44,20:39}
+dis={1:10,2:8,3:5,4:6,5:9,6:2,7:5,8:4,9:7,10:3,11:6,12:10,13:2,14:7,15:8,16:4,17:9,18:11,19:3,20:9}
+l=[]
+q=[]
+while True:
+    print("-"*100)
+    print("\t\t\tDMART GROCERY PRODUCT LIST")
+    print("-"*100)
+    print("""                
+            1.Tur Dal         2.Moong Dal
+            3.Chana Dal       4.Prema Groundnut
+            5.Moong whole     6.Kabuli Chana
+            7.udid Dal        8.Masoor dal
+            9.Chana Small    10.Vatana White
+            11.Matki          12.Rajma Red
+            13.Rajma White    14.Masoor wwhole
+            15.Prema Daliya   16.Chowli Small
+            17.Mix Dal        18.Vatana Green
+            19.Chana Green    20.Vatana Black
+    """)
+    print("-"*100)
+    item=int(input("enter item no= "))
+    l.append(item)
+    quantity=int(input("enter quqntity= "))
+    q.append(quantity)
+    ch=input("do you want to continue(y/n)= ").lower()
+    if ch=="n":
+        print("-"*106)
+        print("|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|".format("Item name","Quantity","Price","Discount","Total"))
+        print("-"*106)
+        sum=0
+        for i in range(len(l)):
+            print("|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|".format(d1[l[i]],q[i],d2[l[i]],dis[l[i]],q[i]*d2[l[i]]-q[i]*d2[l[i]]*dis[l[i]]/100))
+            print("-"*106)
+            sum=sum+(q[i]*d2[l[i]]-q[i]*d2[l[i]]*dis[l[i]]/100)
+        print("yours total bill without GST is= ",sum)
+        print("your bill with 5 per GST is= ",sum+(sum*5/100))
+        print("Thank you for visiting our restaurant!!!")
+        break
